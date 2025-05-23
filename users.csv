@@ -1,0 +1,3 @@
+name,password,email,failed_login_attemps,logged_in,role
+guest,guest,guest@gmail.com,0,False,guest
+admin,fabubu,admin@gmail.com,0,False,administrateur
