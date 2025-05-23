@@ -2,8 +2,20 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_authenticator import Authenticate
 import pandas as pd 
-users = pd.read_csv('users.csv')
+df = pd.read_csv('users.csv')
 
+users = { 'usernames' : {}}
+
+for _, row in df.iterrows():
+    username = row['username']
+    users['usernames'][username] = {
+        'name' : row['name'],
+        'password' : row['password'],
+        'email' : row['email'],
+        'failed_login_attemps' : row['failed_login_attemps'],
+        'logged_in' : row['logged_in'],
+        'role' : row['role']
+    }
 authenticator = Authenticate(
     users,
     'cookie name',
